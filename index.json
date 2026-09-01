@@ -1,0 +1,68 @@
+{
+  "name": "knowledgebase-ticketeria",
+  "description": "Base de conhecimento de atendimento/ticketeria da Eulen, curada a partir do eulen-docs (SSoT interno). Somente conteudo operacional generico e seguro.",
+  "source": "eulen-docs (privado)",
+  "curated_at": "2026-09-01",
+  "filter_rule": "so-curar-docs-seguros: descarta documento que cite parceiro especifico, valor/numero de negocio, PII, credencial, host de infraestrutura, metodologia sensivel de antifraude ou detalhe de incidente sensivel. Sem edicao de conteudo.",
+  "language": "pt-BR",
+  "documents": [
+    {
+      "id": 1,
+      "path": "atendimento/comunicado-de-incidente.md",
+      "title": "Comunicado de incidente ao parceiro",
+      "area": "atendimento",
+      "summary": "Formato fixo do comunicado de incidente no grupo de avisos; o que o corpo pode e nao pode dizer; onde publicar.",
+      "keywords": ["incidente", "comunicado", "broadcast", "parceiros", "status", "grupo de avisos"]
+    },
+    {
+      "id": 2,
+      "path": "atendimento/comunicado-parceiros-3-mudancas-obrigatorias.md",
+      "title": "Comunicado - 3 mudancas obrigatorias na integracao",
+      "area": "atendimento/integracao",
+      "summary": "Comunicado oficial (ja enviado aos parceiros) sobre identificacao do pagador (euid/CPF), merchantId e delay obrigatorio em pagamentos de merchant.",
+      "keywords": ["integracao", "euid", "merchantId", "delayDepixInHours", "MED", "antifraude", "API", "deposit"]
+    },
+    {
+      "id": 3,
+      "path": "estornos/estorno-de-saque-quanto-devolver.md",
+      "title": "Estorno de saque: quanto devolver",
+      "area": "estornos",
+      "summary": "Diferenca entre 'PIX nunca saiu' (devolve DePix cheio, /refundwithdraw) e 'PIX saiu e voltou' (devolve o valor em reais, taxa retida); portao de estado do saque.",
+      "keywords": ["estorno", "saque", "refundwithdraw", "devolucao", "taxa", "estados", "withdraw"],
+      "notes": "Contem referencias a caminhos de codigo interno e um exemplo numerico ilustrativo."
+    },
+    {
+      "id": 4,
+      "path": "onboarding/create-partner-group-chat.md",
+      "title": "Criar grupo de parceiro no Telegram",
+      "area": "onboarding",
+      "summary": "Como criar o grupo Telegram do parceiro, obter o telegram-group-id e configurar o config.yaml.",
+      "keywords": ["telegram", "grupo", "onboarding", "config.yaml", "group-id"]
+    },
+    {
+      "id": 5,
+      "path": "onboarding/create-telegram-bot.md",
+      "title": "Criar um bot no Telegram",
+      "area": "onboarding",
+      "summary": "Guia generico de BotFather: criar bot, obter/regenerar token, testar via API.",
+      "keywords": ["telegram", "botfather", "bot token", "getMe", "onboarding"]
+    },
+    {
+      "id": 6,
+      "path": "onboarding/antifraude-sinais-de-risco.md",
+      "title": "Antifraude - sinais de risco em entrevista de onboarding",
+      "area": "onboarding/risco",
+      "summary": "Checklist anonimizado para ler entrevista de lead pela lente de antifraude; sinais de atencao/positivos, estruturacao, comunicacao.",
+      "keywords": ["antifraude", "onboarding", "risco", "estruturacao", "smurfing", "checklist"],
+      "notes": "Metodologia de antifraude (escrita como material generico/anonimizado). Revise antes de publicar numa base pesquisavel por IA."
+    },
+    {
+      "id": 7,
+      "path": "observabilidade/metabase-armadilhas.md",
+      "title": "Armadilhas do Metabase ao rodar consulta",
+      "area": "observabilidade",
+      "summary": "Teto de 2.000 linhas do /api/dataset, fuso America/Sao_Paulo em to_timestamp, status 202 como sucesso.",
+      "keywords": ["metabase", "sql", "api", "timezone", "armadilha", "query", "dataset"]
+    }
+  ]
+}
