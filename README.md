@@ -36,6 +36,7 @@ Contém material operacional curado e **sanitizado** a partir do repositório in
 |-----------|--------|----------------|
 | [Playbook de atendimento ao parceiro](atendimento/atendimento-parceiro-playbook.md) | O que o parceiro pede e como responder; régua de escalonamento. | playbook, atendimento, escalonamento, double-check |
 | [FAQ de atendimento](atendimento/faq-atendimento.md) | Folha de respostas: os três limites, taxas, `reason_code`, QR estático, paridade 1:1, o que não dizer. | faq, limites, taxas, reason_code, qr, paridade |
+| [FAQ por sintoma](atendimento/faq-por-sintoma.md) | O que o parceiro escreve → o `tipo` → como respondemos, fundamentado na taxonomia do `ticketing.py`. | faq, sintoma, ticketing, sinais, help_keywords |
 | [Manual Operacional do Bot Pix](atendimento/manual-operacional-bot-pix.md) | Mecânica completa: identificadores, status, triagem, todos os comandos, playbooks. | bot, comandos, /refund, /show, saque, triagem, help |
 | [Sistema de Tickets & SLA](atendimento/sistema-tickets-sla.md) | Objeto ticket (ATD/ENG/DEM), campos, enums, metas de SLA e como é medido. | ticket, sla, atd, eng, dem, metas |
 | [Contestação de MED — guia operacional](atendimento/med-contestacao-guia-operacional.md) | O que é MED 2.0, fluxo, o que dizer ao parceiro, FAQ. | med, contestação, devolução, dict, bacen |
