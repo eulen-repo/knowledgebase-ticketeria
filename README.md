@@ -1,78 +1,96 @@
 # knowledgebase-ticketeria
 
 Base de conhecimento **para atendimento / ticketeria** (agentes humanos e IA) da operação Eulen.
-Contém apenas material operacional **genérico e seguro**, curado a partir do repositório interno
-`eulen-docs`.
+Contém material operacional curado e **sanitizado** a partir do repositório interno `eulen-docs`.
 
 > [!CAUTION]
-> **Procedência e sensibilidade.** Este conteúdo foi extraído de `eulen-docs`, o SSoT interno da
-> Eulen, que **contém informação sensível** — dados de negócio (volumes, receita, limites,
-> estratégia), dados de parceiros (nomes, PII, integrações), e incidentes com detalhe sensível
-> (fraude, valores, segurança, infraestrutura). **Nada disso deve entrar aqui.** Cada documento
-> abaixo passou por uma curadoria manual: só entrou o que **já era genérico e seguro**, sem editar
-> o conteúdo. Ver [§ O que foi filtrado](#o-que-foi-filtrado).
+> **Procedência e sensibilidade.** Este conteúdo deriva de `eulen-docs`, o SSoT interno da Eulen, que
+> **contém informação sensível** — dados de negócio (volumes, receita, limites, estratégia), dados de
+> parceiros/processadoras (nomes, PII, integrações) e incidentes com detalhe sensível (fraude, valores,
+> segurança, infraestrutura). **Nada disso deve entrar aqui.** Cada documento passou por curadoria e
+> redação manual: nomes de parceiros/processadoras foram generalizados, PII/credenciais/hosts internos
+> e números de negócio foram removidos, e detalhes sensíveis de incidentes foram anonimizados.
 
 ## Como esta base foi montada
 
-- **Origem:** `eulen-docs` → `operations/`, `glossary.md`, `processes.md` (escopo definido para a
-  ticketeria).
-- **Regra de filtragem:** *só curar documentos já seguros*. Um documento só entra se **não** menciona
-  parceiro específico, valor/número de negócio, PII, credencial, host de infraestrutura, metodologia
-  de antifraude sensível, ou detalhe de incidente sensível. Documentos que misturam conteúdo útil com
-  qualquer um desses itens foram **descartados inteiros** (não foram editados/redigidos).
+- **Origem:** `eulen-docs` → `operations/`, `glossary.md`, `processes.md`.
+- **Modo:** *curar + redigir*. Documentos úteis ao atendimento entraram; dentro deles, tudo que
+  identifica parceiro/processadora, expõe número de negócio, PII, credencial, host de infraestrutura ou
+  metodologia/estado de antifraude sensível foi **generalizado ou removido**, **sem** alterar as
+  instruções operacionais.
 - **Data da curadoria:** 2026-09-01.
+
+### Convenções de redação usadas
+
+- Processadoras e nós bancários específicos → **"a processadora" / "o banking node"**.
+- Nomes de parceiros, pessoas e leads → papel genérico ou removidos.
+- Volumes/receita/contagens agregadas de plataforma → removidos; **limites e taxas de produto**
+  (partner-facing) foram mantidos por serem regra operacional.
+- Hosts internos, nomes de segredos, caminhos de credencial → removidos.
+- Links para incidentes/reuniões internas → removidos; a lição genérica foi preservada.
 
 ## Índice
 
-| # | Documento | Área | Resumo | Palavras-chave |
-|---|-----------|------|--------|----------------|
-| 1 | [Comunicado de incidente ao parceiro](atendimento/comunicado-de-incidente.md) | Atendimento | Formato fixo do comunicado de incidente no grupo de avisos; o que o corpo pode e não pode dizer; onde publicar. | incidente, comunicado, broadcast, parceiros, status |
-| 2 | [Comunicado — 3 mudanças obrigatórias na integração](atendimento/comunicado-parceiros-3-mudancas-obrigatorias.md) | Atendimento / Integração | Comunicado oficial (já enviado aos parceiros) sobre identificação do pagador (`euid`/CPF), `merchantId` e delay obrigatório em pagamentos de merchant. | integração, euid, merchantId, delayDepixInHours, MED, antifraude, API |
-| 3 | [Estorno de saque: quanto devolver](estornos/estorno-de-saque-quanto-devolver.md) | Estornos | Diferença entre "PIX nunca saiu" (devolve DePix cheio, `/refundwithdraw`) e "PIX saiu e voltou" (devolve o valor em reais, taxa retida); portão de estado do saque. | estorno, saque, refundwithdraw, devolução, taxa, estados |
-| 4 | [Criar grupo de parceiro no Telegram](onboarding/create-partner-group-chat.md) | Onboarding | Como criar o grupo Telegram do parceiro, obter o `telegram-group-id` e configurar o `config.yaml`. | telegram, grupo, onboarding, config.yaml, group-id |
-| 5 | [Criar um bot no Telegram](onboarding/create-telegram-bot.md) | Onboarding | Guia genérico de BotFather: criar bot, obter/regenerar token, testar via API. | telegram, botfather, bot token, getMe, onboarding |
-| 6 | [Antifraude — sinais de risco em entrevista de onboarding](onboarding/antifraude-sinais-de-risco.md) | Onboarding / Risco | Checklist anonimizado para ler entrevista de lead pela lente de antifraude; sinais de atenção/positivos, estruturação, comunicação. | antifraude, onboarding, risco, estruturação, smurfing, checklist |
-| 7 | [Armadilhas do Metabase ao rodar consulta](observabilidade/metabase-armadilhas.md) | Observabilidade | Teto de 2.000 linhas do `/api/dataset`, fuso `America/Sao_Paulo` em `to_timestamp`, status `202` como sucesso. | metabase, sql, api, timezone, armadilha, query |
+### Atendimento
+| Documento | Resumo | Palavras-chave |
+|-----------|--------|----------------|
+| [Playbook de atendimento ao parceiro](atendimento/atendimento-parceiro-playbook.md) | O que o parceiro pede e como responder; régua de escalonamento. | playbook, atendimento, escalonamento, double-check |
+| [FAQ de atendimento](atendimento/faq-atendimento.md) | Folha de respostas: os três limites, taxas, `reason_code`, QR estático, paridade 1:1, o que não dizer. | faq, limites, taxas, reason_code, qr, paridade |
+| [Manual Operacional do Bot Pix](atendimento/manual-operacional-bot-pix.md) | Mecânica completa: identificadores, status, triagem, todos os comandos, playbooks. | bot, comandos, /refund, /show, saque, triagem, help |
+| [Sistema de Tickets & SLA](atendimento/sistema-tickets-sla.md) | Objeto ticket (ATD/ENG/DEM), campos, enums, metas de SLA e como é medido. | ticket, sla, atd, eng, dem, metas |
+| [Contestação de MED — guia operacional](atendimento/med-contestacao-guia-operacional.md) | O que é MED 2.0, fluxo, o que dizer ao parceiro, FAQ. | med, contestação, devolução, dict, bacen |
+| [Comunicado de incidente ao parceiro](atendimento/comunicado-de-incidente.md) | Formato fixo do comunicado no grupo de avisos; o que o corpo pode dizer. | incidente, comunicado, broadcast |
+| [Comunicado — 3 mudanças obrigatórias](atendimento/comunicado-parceiros-3-mudancas-obrigatorias.md) | Identificação do pagador (`euid`/CPF), `merchantId`, delay obrigatório. | integração, euid, merchantId, delay, api |
+| [Depósito em chave estática](atendimento/deposito-em-chave-estatica.md) | Quem é o dono do dinheiro num pagamento em chave estática; armadilhas. | chave estática, metadata.code, dono, atribuição |
+| [Documentação de saques](atendimento/withdraw-docs.md) | Catálogo de erros conhecidos do saque. | saque, erro, timeout, invalid_deposits |
+| [Armadilhas de consulta (pix2depix)](atendimento/armadilhas-de-consulta-pix2depix.md) | Consultas que devolvem menos linha em vez de erro. | sql, uuidv7, tx_date, e2e, schema |
+| [Listas de controle ("whitelist")](atendimento/listas-de-controle.md) | As seis listas que atendem por "whitelist" e para que lado cada uma falha. | whitelist, blocklist, controle, modo manual |
+| [Runbooks — porta por sintoma](atendimento/runbooks.md) | Índice por sintoma para as demais docs. | runbook, sintoma, índice |
+| [E-mails de MED (aviso/lembrete/encerramento)](atendimento/emails/med-aviso-lembrete-encerramento.md) | Templates dos três e-mails de MED ao parceiro. | email, med, template, aviso |
+| [Resposta ao formulário do site](atendimento/emails/resposta-form-depix.md) | Template de resposta a quem preencheu o formulário. | email, formulário, lead |
 
-## Notas de curadoria por documento
+### Estornos
+| Documento | Resumo | Palavras-chave |
+|-----------|--------|----------------|
+| [Estorno de depósito](estornos/estorno-de-deposito.md) | Modelo de dados e como provar um estorno; estados de saque. | estorno, depósito, refund, prova, estados |
+| [Estorno de saque: quanto devolver](estornos/estorno-de-saque-quanto-devolver.md) | Os dois casos e o portão de estado. | estorno, saque, refundwithdraw, taxa |
 
-- **Doc 3 (estorno de saque):** contém referências a caminhos de código-fonte interno (`src/pkg/...`)
-  e um exemplo numérico ilustrativo. Sem parceiro, sem valor de negócio real.
-- **Doc 6 (antifraude sinais de risco):** é **metodologia de antifraude** (embora escrito como material
-  genérico/anonimizado pela própria equipe). Reveja se você quer critérios de detecção de fraude numa
-  base pesquisável por IA antes de publicar.
-- **Links quebrados são esperados:** vários documentos mantêm links relativos para o `eulen-docs`
-  original (ex.: `../glossary.md`, `../compliance/...`). Eles apontam para o repositório privado e
-  **não** existem aqui — foram preservados por não editarmos o conteúdo. Não seguem para conteúdo que
-  esteja nesta base.
+### Onboarding
+| Documento | Resumo | Palavras-chave |
+|-----------|--------|----------------|
+| [Processo de onboarding](onboarding/onboarding-process.md) | Captação → qualificação → grupo → teste R$10 → KYC. | onboarding, lead, kyc, r$10 |
+| [Adicionar um parceiro](onboarding/add-partner.md) | Uso manual de `/addpartner`; obter o group-id. | addpartner, group-id, ativar |
+| [Criar grupo de parceiro no Telegram](onboarding/create-partner-group-chat.md) | Criar o grupo e configurar o `config.yaml`. | telegram, grupo, config.yaml |
+| [Criar um bot no Telegram](onboarding/create-telegram-bot.md) | BotFather: criar bot, token, testar. | botfather, token, bot |
+| [Antifraude — sinais de risco na entrevista](onboarding/antifraude-sinais-de-risco.md) | Checklist anonimizado para ler entrevista de lead pela lente de risco. | antifraude, risco, estruturação, checklist |
 
-## O que foi filtrado
+### Observabilidade
+| Documento | Resumo | Palavras-chave |
+|-----------|--------|----------------|
+| [Buscador universal (Metabase)](observabilidade/metabase-buscador-universal.md) | Cola qualquer identificador e lista todas as ocorrências. | buscador, identificador, e2e, cpf, uuid |
+| [Armadilhas do Metabase](observabilidade/metabase-armadilhas.md) | Teto de 2.000 linhas, fuso, status 202. | metabase, api, timezone, armadilha |
 
-Do escopo pedido (`operations/` = 64 arquivos + `glossary.md` + `processes.md`), **7 entraram** e o
-restante foi descartado. Motivos mais comuns:
+### Base
+| Documento | Resumo |
+|-----------|--------|
+| [Glossário](glossario.md) | Vocabulário operacional (DePix, MED, EUID, EMID, QR Delay, KYC/KYB…). |
+| [Processos de atendimento](processos.md) | Como uma demanda entra, é acompanhada e escala. |
 
-- **Parceiro/processadora específica** citada (Sqala, Fitbank, Xend, Transfero, TechBnk, Deflow, Plebz,
-  Joltz, Satsails, etc.) — ex.: `atendimento-parceiro-playbook`, `withdraw-docs`, `sqala-known-errors`,
-  `mike-faq`, `manual-operacional-bot-pix`, `sistema-tickets-sla`, `med-contestacao/*`.
-- **Valores/números de negócio** (volume da plataforma, receita, MEDs por parceiro, limites) — ex.:
-  `estorno-de-deposito`, `metabase-*` (mapa, alertas, dashboards, risks-cockpit, buscador),
-  `volume-da-plataforma`, `dono-do-parceiro-metodo`.
-- **PII real de leads/parceiros** — ex.: `onboarding/approve-lead-to-partner` (nomes de empresas,
-  pessoas e handles reais).
-- **Credencial / conta operacional / infraestrutura** — ex.: `onboarding/add-telegram-account`
-  (conta operacional específica + onde mora a senha 2FA), `zammad-n0-assistant` (nomes de segredos,
-  endpoints internos, caminhos AWS).
-- **Metodologia sensível de antifraude** — ex.: `chain-analysis` (rastreio on-chain de MED).
-- **Notas internas de engenharia / projeto** fora de escopo de atendimento — ex.:
-  `eulen-assistant-docs/*`, `mvp-onboarding-ai`, `telegram-multi-bot-coexistence`.
+## Notas de curadoria
 
-### `glossary.md` e `processes.md` (pedidos, porém retidos)
+- **Verbatim (já seguros na origem, copiados sem edição):** comunicado-de-incidente,
+  comunicado-parceiros-3-mudancas, estorno-de-saque, metabase-armadilhas, create-partner-group-chat,
+  create-telegram-bot, antifraude-sinais-de-risco.
+- **Redigidos (sanitizados a partir do original):** todos os demais.
+- **Antifraude — sinais de risco:** é metodologia (embora escrita como material anonimizado). Reveja se
+  quer critérios de detecção de fraude numa base pesquisável por IA antes de dar acesso amplo.
+- **Links quebrados** para o `eulen-docs` original foram substituídos por referências internas desta
+  base ou removidos.
 
-Foram pedidos no escopo, mas **não passaram** na regra "só curar docs seguros": o `glossary.md` cita
-parceiros e enquadra risco de negócio, e o `processes.md` nomeia donos/parceiros. Como o modo escolhido
-foi curar **sem editar**, eles não foram copiados. Opções para incluí-los:
-1. produzir versões **redigidas/sanitizadas** (modo "curar + redigir"); ou
-2. escrever um **glossário novo, nativo desta base**, só com termos genéricos de produto (DePix, Pix,
-   MED, EUID, QR, estorno, saque, depósito).
+## O que **não** entrou
 
-Qualquer uma pode ser feita sob demanda.
+Ficaram de fora, por não serem sanitizáveis sem perder o essencial ou por não serem conteúdo de
+atendimento: metodologia de rastreio on-chain de antifraude; método de identificação de dono de parceiro;
+dashboards com métricas de negócio (mapa/alertas/cockpit de risco); volume da plataforma; modelo/roadmap
+do CRM interno; guia com conta operacional + localização de senha 2FA; notas internas de engenharia do
+assistente; arquitetura interna de bots/infra; e os registros nominais de MED.
