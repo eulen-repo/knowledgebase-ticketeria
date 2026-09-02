@@ -10,6 +10,11 @@ de um parceiro; a lista de parceiros fica em **eulen.app/partners**.
 Quem já tem L-BTC pode comprar e vender DePix em mercado secundário (por exemplo, na exchange
 **sideswap.io**), onde a cotação é de mercado.
 
+## Métodos de pagamento
+
+O fluxo é via **Pix** (Pix → DePix na compra, DePix → Pix no resgate). **Cartão de crédito e boleto
+não estão disponíveis** como forma de pagamento.
+
 ## Identificação e privacidade
 
 - **O DePix não é anônimo.** Há identificação por CPF/CNPJ nas transações, e há reporte ao regulador.

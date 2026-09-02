@@ -17,7 +17,7 @@ dúvidas de integração e operação com o DePix.
 | [Glossário](glossario.md) | O que é DePix, Liquid, QR dinâmico/estático, QR Delay, EUID, EMID, MED, E2E, paridade 1:1. |
 | [Limites e Taxas](limites-e-taxas.md) | Teto por saque, tetos por QR (com/sem identificação), limite diário, taxas de depósito e saque. |
 | [Integração / API](integracao-api.md) | Identificação obrigatória (`euid`/CPF, `merchantId`, delay), criar cobrança, consultar status, token de API, webhooks, QR estático. |
-| [Situações Comuns](situacoes-comuns.md) | "DePix não chegou", transação em análise, diferença de valor, recebi menos, chave fixa, recebi um MED. |
+| [Situações Comuns](situacoes-comuns.md) | "DePix não chegou", saque com erro/travado, depósito expirado/pendente/comprovante enviado, transação em análise, diferença de valor, recebi menos, chave fixa, recebi um MED. |
 | [Sobre a Eulen e o DePix](sobre-a-eulen.md) | Como o DePix é comercializado, identificação/privacidade, paridade, como declarar. |
 
 Para especificação técnica completa e atualizada de campos e endpoints, a fonte é

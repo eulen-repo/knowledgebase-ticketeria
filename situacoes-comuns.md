@@ -27,6 +27,30 @@ janela de segurança). Os motivos mais comuns de uma retenção por revisão:
 
 Uma transação em revisão **não é recusada automaticamente** — ela aguarda análise.
 
+## Depósito: expirado, "pendente 24h", ou "enviei o comprovante e não entrou"
+
+- **QR expirado.** Um QR de cobrança tem validade curta (cerca de 20 minutos). Um Pix pago depois de o
+  QR expirar pode não ser creditado automaticamente — nesse caso o caminho é gerar uma **nova
+  cobrança**.
+- **Depósito "pendente" ou retido por algumas horas.** Um depósito pode ficar aguardando por causa do
+  **atraso programado (QR Delay)** — uma janela de segurança contra fraude. Ao fim da janela, a
+  liberação é automática.
+- **"O cliente enviou o comprovante, mas o valor não entrou."** As causas mais comuns são: o pagamento
+  foi feito **fora do QR** (o cliente digitou a chave Pix em vez de ler o QR/copiar o código), o QR já
+  havia **expirado**, ou o **CPF que pagou é diferente** do informado na cobrança. Um comprovante do
+  banco, por si só, não garante que o pagamento entrou pelo caminho esperado.
+
+## Meu saque deu erro / travou / "não gerou comprovante"
+
+É a situação de suporte mais comum. Um saque (DePix → Pix) pode **falhar** por dois motivos típicos:
+a **chave Pix informada está incorreta**, ou o **banco rejeitou** o pagamento.
+
+- **O valor não é perdido.** Um saque que falhou pode ser **reenviado** com a chave Pix correta, ou
+  **devolvido em DePix** para um endereço da rede Liquid que o parceiro indicar.
+- **Um saque não pode ser editado.** Não dá para trocar a chave ou o valor de um saque já criado — é
+  preciso **refazer** o saque. Só é possível corrigir enquanto o pagamento **ainda não foi enviado**;
+  se já foi enviado, ele foi para a conta de destino.
+
 ## Diferença de valor no depósito
 
 - **Diferença de 1 centavo:** quase sempre é arredondamento.
