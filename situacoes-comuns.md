@@ -25,7 +25,13 @@ janela de segurança). Os motivos mais comuns de uma retenção por revisão:
 - **Muitas transações em pouco tempo** vindas do mesmo pagador.
 - **O pagador (ou o banco de origem) está bloqueado.**
 
-Uma transação em revisão **não é recusada automaticamente** — ela aguarda análise.
+Uma transação em revisão **não é recusada automaticamente** — ela aguarda análise. Já uma transação
+com **atraso programado** compensa **automaticamente ao fim da janela** (o horário de liberação é
+previsível).
+
+Quando um pagador é **barrado por análise de risco/compliance**, o depósito daquele CPF não é
+processado. O **motivo detalhado** de uma recusa por compliance **não é divulgado ao cliente final** —
+ele é informado ao parceiro apenas para seu controle.
 
 ## Depósito: expirado, "pendente 24h", ou "enviei o comprovante e não entrou"
 
@@ -45,8 +51,13 @@ Uma transação em revisão **não é recusada automaticamente** — ela aguarda
 É a situação de suporte mais comum. Um saque (DePix → Pix) pode **falhar** por dois motivos típicos:
 a **chave Pix informada está incorreta**, ou o **banco rejeitou** o pagamento.
 
+- **"Não gerou comprovante" quer dizer que o saque não foi efetivado.** Não existe comprovante porque
+  **nada foi enviado** — não é um comprovante "perdido". Se houve mais de uma tentativa e todas
+  falharam, **não há pagamento parcial nem duplicado**: nenhuma delas saiu.
 - **O valor não é perdido.** Um saque que falhou pode ser **reenviado** com a chave Pix correta, ou
   **devolvido em DePix** para um endereço da rede Liquid que o parceiro indicar.
+- **Falha por chave inválida não retém taxa.** Como não houve prestação de serviço, a devolução é
+  integral.
 - **Um saque não pode ser editado.** Não dá para trocar a chave ou o valor de um saque já criado — é
   preciso **refazer** o saque. Só é possível corrigir enquanto o pagamento **ainda não foi enviado**;
   se já foi enviado, ele foi para a conta de destino.
@@ -64,7 +75,8 @@ Quase sempre é a **taxa** do saque (1% do valor, com piso de R$ 1,00). Ver [Lim
 ## Quero uma chave Pix fixa
 
 Uma chave Pix fixa própria por parceiro **não existe** (limite do Banco Central de 20 chaves por
-conta). A solução é o **QR estático**, que é reutilizável. Ver [Integração / API](integracao-api.md#qr-estático-e-chave-pix-fixa).
+conta). A solução é o **QR estático** (reutilizável), que está em **liberação gradual, por parceiro** —
+pode ainda não estar habilitado para todos. Ver [Integração / API](integracao-api.md#qr-estático-e-chave-pix-fixa).
 
 ## Recebi um MED (uma contestação)
 

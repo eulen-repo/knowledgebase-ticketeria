@@ -4,8 +4,13 @@
 
 ### Teto por saque
 
-Cada saque (DePix → Pix) tem um valor **mínimo de R$ 2,00** e **máximo de R$ 6.000,00**. Esse teto
-vale por operação isolada — **não** acumula.
+Cada saque (DePix → Pix) tem um **mínimo de 2** e um **máximo de 6.000** — em **DePix debitado**.
+Como 1 DePix = 1 real, equivale a R$ 2,00 e R$ 6.000,00. Esse teto vale por operação isolada — **não**
+acumula.
+
+> O valor informado no saque é o **DePix debitado**, não o valor em reais que será pago. O valor pago
+> em reais é o DePix debitado **menos a taxa de saque** (1%). Ex.: um saque de 6.000 DePix paga
+> R$ 5.940,00 em Pix (6.000 − 1%).
 
 ### Tetos por QR (dependem da identificação do pagador)
 

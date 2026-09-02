@@ -64,7 +64,7 @@ por grupo. Para ter mais de um webhook do mesmo tipo, usa-se um segundo grupo co
 
 ## QR estático e chave Pix fixa
 
-O **QR estático** (reutilizável) existe e pode ser habilitado para o parceiro. Uma **chave Pix fixa
-própria por parceiro não existe**: a regra do Banco Central limita a 20 chaves por conta bancária,
-então as chaves são remanejadas conforme o volume. O QR estático é a solução para o caso de uma
-cobrança fixa reutilizável.
+O **QR estático** (reutilizável) está em **liberação gradual, habilitado por parceiro** — pode ainda
+não estar disponível para todos. Uma **chave Pix fixa própria por parceiro não existe**: a regra do
+Banco Central limita a 20 chaves por conta bancária, então as chaves são remanejadas conforme o
+volume. O QR estático é a solução para o caso de uma cobrança fixa reutilizável.
